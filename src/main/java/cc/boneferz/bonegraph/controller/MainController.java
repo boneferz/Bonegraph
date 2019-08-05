@@ -20,6 +20,7 @@ public class MainController {
 	public String index(Model model) {
 		model.addAttribute("message", message);
 		model.addAttribute("tasks", tasks);
+		
 		return "index";
 	}
 }

@@ -11,11 +11,38 @@
 </head>
 <body>
 <div class="wrapper">
-	<p style="color:red">text - <span th:text="message">12</span></p>
-	<p>index page</p>
-	<ul>
-		<li th:each="task : ${tasks}" th:text="${task}">222</li>
-	</ul>
+	<!-- -------------------------------------- -->
+	<div class="side user">
+		<div class="mainHead">
+			<h3 class="title">Bonegraph</h3>
+			<div class="avatar">
+				<img class="photo" src="#" alt="avatar">
+			</div>
+			<h4 class="name">First Last</h4>
+			<p class="loginName"></p>
+		</div>
+		
+		<div class="info">
+			<span>info:</span>
+			<p class="param">age: <span class="value">21</span></p>
+			<p class="param">age: <span class="value">21</span></p>
+			<p class="param">age: <span class="value">21</span></p>
+		</div>
+		
+		<div class="navigation">
+			<ul class="links">
+				<li class="link">common <span class="counter">(12)</span></li>
+				<li class="link">my <span class="counter">(3)</span></li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- -------------------------------------- -->
+	<div class="side content">
+		<ul>
+			<li th:each="task : ${tasks}" th:text="${task}">222</li>
+		</ul>
+	</div>
 </div>
 </body>
 </html>
