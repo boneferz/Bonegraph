@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	
+	<title>Bonegraph</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic" rel="stylesheet">
+	<link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
+	<link href="../static/normalize.css" th:href="@{/normalize.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="wrapper">
+	<p style="color:red">text - <span th:text="message">12</span></p>
+	<p>index page</p>
+	<ul>
+		<li th:each="task : ${tasks}" th:text="${task}">222</li>
+	</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	
+	<title>Bonegraph</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic" rel="stylesheet">
+	<link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
+	<link href="../static/normalize.css" th:href="@{/normalize.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="wrapper">
+	<!-- -------------------------------------- -->
+	<div class="side user">
+		<div class="mainHead">
+			<h3 class="title">Bonegraph</h3>
+			<div class="avatar">
+				<img class="photo" src="#" alt="avatar">
+			</div>
+			<h4 class="name">First Last</h4>
+			<p class="loginName"></p>
+		</div>
+		
+		<div class="info">
+			<span>info:</span>
+			<p class="param">age: <span class="value">21</span></p>
+			<p class="param">age: <span class="value">21</span></p>
+			<p class="param">age: <span class="value">21</span></p>
+		</div>
+		
+		<div class="navigation">
+			<ul class="links">
+				<li class="link">common <span class="counter">(12)</span></li>
+				<li class="link">my <span class="counter">(3)</span></li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- -------------------------------------- -->
+	<div class="side content">
+		<ul>
+			<li th:each="task : ${tasks}" th:text="${task}">222</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>
