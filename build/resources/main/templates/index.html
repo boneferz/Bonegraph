@@ -8,6 +8,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic" rel="stylesheet">
 	<link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
 	<link href="../static/normalize.css" th:href="@{/normalize.css}" rel="stylesheet" />
+	<link rel="shortcut icon" href="../static/res/ico1.png" th:href="@{/res/ico1.png}">
 </head>
 <body>
 <div class="wrapper">
@@ -16,33 +17,81 @@
 		<div class="mainHead">
 			<h3 class="title">Bonegraph</h3>
 			<div class="avatar">
-				<img class="photo" src="#" alt="avatar">
+				<img class="photo" src="../static/res/man.jpg" alt="avatar">
 			</div>
 			<h4 class="name">First Last</h4>
-			<p class="loginName"></p>
+			<p class="loginName">@frederic</p>
 		</div>
 		
 		<div class="info">
-			<span>info:</span>
-			<p class="param">age: <span class="value">21</span></p>
-			<p class="param">age: <span class="value">21</span></p>
-			<p class="param">age: <span class="value">21</span></p>
+			<span>private information:</span>
+			<p class="param">age: <span class="value">23</span></p>
+			<p class="param">country: <span class="value">USA</span></p>
+			<p class="param">profile: <span class="value">java developer</span></p>
 		</div>
 		
 		<div class="navigation">
 			<ul class="links">
-				<li class="link">common <span class="counter">(12)</span></li>
-				<li class="link">my <span class="counter">(3)</span></li>
+				<li class="link"><a href="#"><span class="icon">💻</span>‍common <span class="counter">(12)</span></a></li>
+				<li class="link"><a href="#"><span class="icon">👨</span>my <span class="counter">(3)</span></a></li>
 			</ul>
 		</div>
 	</div>
 	
 	<!-- -------------------------------------- -->
 	<div class="side content">
-		<ul>
-			<li th:each="task : ${tasks}" th:text="${task}">222</li>
-		</ul>
+		<div class="postWrapper">
+			<div class="newPost">
+				<div class="ava">
+					<img src="../static/res/ava.png" alt="ava">
+				</div>
+				<div class="who">
+					<span>First Last</span>
+					<span>@login</span>
+					<span>17.08.19</span>
+				</div>
+				<textarea class="inputtext" name="inputtext" id="" cols="30" rows="10" placeholder="Input your message"></textarea>
+				<button class="btn active">submit</button>
+				<span class="time">07.59</span>
+			</div>
+		</div>
+		<div class="postWrapper">
+			<div class="post">
+				<p>img</p>
+				<p>date</p>
+				<p>title</p>
+				<p>text</p>
+				<p><3 (23)</p>
+			</div>
+		</div>
 	</div>
+</div>
+<div class="footer">
+	<p class="copy">©BONEFERZ 2033 | telegram killer</p>
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
