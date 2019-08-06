@@ -350,6 +350,16 @@ textarea.inputtext:focus,
     font-size: 25px;
     color: #17121d;
 }
+.link .exit .icon {
+    color: #c54240;
+}
+.links .link.exit a {
+    color: #540000;
+    background: #190e0e;
+}
+.links .link.exit a .icon {
+    color: #920000;
+}
 
 /*------------------------------------------------------------------------*/
 

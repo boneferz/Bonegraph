@@ -6,237 +6,47 @@
 	<title>Bonegraph</title>
 	
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic" rel="stylesheet">
-	<link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
+	<link href="../static/style-reg.css" th:href="@{/style-reg.css}" rel="stylesheet" />
 	<link href="../static/normalize.css" th:href="@{/normalize.css}" rel="stylesheet" />
 	<link rel="shortcut icon" href="../static/res/ico1.png" th:href="@{/res/ico1.png}">
 </head>
 <body>
 <div class="wrapper">
-	<!-- -------------------------------------- -->
-	<div class="side user">
-		<div class="mainHead">
-			<h3 class="title">Bonegraph</h3>
-			<div class="avatar">
-				<img class="photo" src="../static/res/man.jpg" alt="avatar">
-			</div>
-			<h4 class="name">First Last</h4>
-			<p class="loginName">@frederic</p>
-		</div>
+	
+	<div class="wrapperColumn enter">
+		<h3 class="wrapper_title">Sign in</h3>
 		
-		<div class="info">
-			<span>private information:</span>
-			<p class="param">age: <span class="value">23</span></p>
-			<p class="param">country: <span class="value">USA</span></p>
-			<p class="param">profile: <span class="value">java developer</span></p>
-		</div>
+		<p>login</p>
+		<input type="text">
+		<p>password</p>
+		<input type="text">
 		
-		<div class="navigation">
-			<ul class="links">
-				<li class="link"><a href="#" class="active"><span class="icon">💻</span>‍common <span class="counter">(12)</span></a></li>
-				<li class="link"><a href="#"><span class="icon">👨</span>my <span class="counter">(3)</span></a></li>
-				<li class="link"><a href="#"><span class="icon">🔗</span>Settings</a></li>
-				<li class="link"><a href="#"><span class="icon">📋</span>About</a></li>
-			</ul>
+		<div class="btn">
+			<button>Enter</button>
+		</div>
+		<a th:href="@{/app}">app</a>
+	</div>
+	
+	<div class="wrapperColumn registration">
+		<h3 class="wrapper_title">Sign up</h3>
+		
+		<p>firstName</p>
+		<input type="text">
+		<p>lastName</p>
+		<input type="text">
+		<p>login</p>
+		<input type="text">
+		<p>password</p>
+		<input type="text">
+		<p>password</p>
+		<input type="text">
+		
+		<div class="btn">
+			<button>create an account</button>
 		</div>
 	</div>
 	
-	<!-- -------------------------------------- -->
-	<div class="side content">
-		<div class="postWrapper input">
-			<div class="newPost">
-				<div class="ava">
-					<img src="../static/res/ava.png" alt="ava">
-				</div>
-				<textarea class="inputtext" name="inputtext" id="" cols="30" rows="10" placeholder="Input your message"></textarea>
-				<button class="btn active">submit</button>
-			</div>
-		</div>
-		<div class="postWrapper postType">
-			<div class="post">
-				<div class="ava">
-					<img src="../static/res/ava.png" alt="ava">
-				</div>
-				<div class="who">
-					<span class="post_name">First Last</span>
-					<span class="post_login">@login</span>
-					<span class="post_date">17.08.19</span>
-				</div>
-				<p class="postText">text 2text 2text 2text 2text 2text 2text 2text 2text 2text 2text 2text 2text 2text 2</p>
-				
-				<p class="postHearts">
-					<a href="#" class="heart"><img src="../static/res/makefg.png" alt=""></a>
-					<span class="heartCounter">23</span>
-				</p>
-				<span class="time">07.59</span>
-			</div>
-		</div>
-		<div class="postWrapper postType other">
-			<div class="post">
-				<div class="ava">
-					<img src="../static/res/2222.jpg" alt="ava">
-				</div>
-				<div class="who">
-					<span class="post_name">First Last</span>
-					<span class="post_login">@login</span>
-					<span class="post_date">17.08.19</span>
-				</div>
-				<p class="postText">
-					xt 2text 2text 2
-					xt 2text 2text 2xt 2text 2text 2xt 2text 2text 2xt 2text 2text 2
-					xt 2text 2text 2
-					xt 2text 2text 2xt 2text 2text 2xt 2text 2text 2xt 2text 2text 2
-					xt 2text 2text 2
-					xt 2text 2text 2xt 2text 2text 2xt 2text 2text 2xt 2text 2text 2
-					
-				</p>
-				
-				<p class="postHearts">
-					<a href="#" class="heart"><img src="../static/res/makefg.png" alt=""></a>
-					<span class="heartCounter">23</span>
-				</p>
-				<span class="time">07.59</span>
-			</div>
-		</div>
-		<div class="postWrapper postType">
-			<div class="post">
-				<div class="ava">
-					<img src="../static/res/ava.png" alt="ava">
-				</div>
-				<div class="who">
-					<span class="post_name">First Last</span>
-					<span class="post_login">@login</span>
-					<span class="post_date">17.08.19</span>
-				</div>
-				<p class="postText">text 2text 2text2</p>
-				
-				<p class="postHearts">
-					<a href="#" class="heart"><img src="../static/res/makefg.png" alt=""></a>
-					<span class="heartCounter">23</span>
-				</p>
-				<span class="time">07.59</span>
-			</div>
-		</div>
-		<div class="postWrapper postType">
-			<div class="post">
-				<div class="ava">
-					<img src="../static/res/ava.png" alt="ava">
-				</div>
-				<div class="who">
-					<span class="post_name">First Last</span>
-					<span class="post_login">@login</span>
-					<span class="post_date">17.08.19</span>
-				</div>
-				<p class="postText">text 2text 2text2</p>
-				
-				<p class="postHearts">
-					<a href="#" class="heart"><img src="../static/res/makefg.png" alt=""></a>
-					<span class="heartCounter">23</span>
-				</p>
-				<span class="time">07.59</span>
-			</div>
-		</div>
-		<div class="postWrapper postType">
-			<div class="post">
-				<div class="ava">
-					<img src="../static/res/ava.png" alt="ava">
-				</div>
-				<div class="who">
-					<span class="post_name">First Last</span>
-					<span class="post_login">@login</span>
-					<span class="post_date">17.08.19</span>
-				</div>
-				<p class="postText">text 2text 2text2</p>
-				
-				<p class="postHearts">
-					<a href="#" class="heart"><img src="../static/res/makefg.png" alt=""></a>
-					<span class="heartCounter">23</span>
-				</p>
-				<span class="time">07.59</span>
-			</div>
-		</div>
-		<div class="postWrapper postType">
-			<div class="post">
-				<div class="ava">
-					<img src="../static/res/ava.png" alt="ava">
-				</div>
-				<div class="who">
-					<span class="post_name">First Last</span>
-					<span class="post_login">@login</span>
-					<span class="post_date">17.08.19</span>
-				</div>
-				<p class="postText">text 2text 2text2</p>
-				
-				<p class="postHearts">
-					<a href="#" class="heart"><img src="../static/res/makefg.png" alt=""></a>
-					<span class="heartCounter">23</span>
-				</p>
-				<span class="time">07.59</span>
-			</div>
-		</div>
-		<div class="postWrapper postType">
-			<div class="post">
-				<div class="ava">
-					<img src="../static/res/ava.png" alt="ava">
-				</div>
-				<div class="who">
-					<span class="post_name">First Last</span>
-					<span class="post_login">@login</span>
-					<span class="post_date">17.08.19</span>
-				</div>
-				<p class="postText">text 2text 2text2</p>
-				
-				<p class="postHearts">
-					<a href="#" class="heart"><img src="../static/res/makefg.png" alt=""></a>
-					<span class="heartCounter">23</span>
-				</p>
-				<span class="time">07.59</span>
-			</div>
-		</div>
-		<div class="postWrapper postType">
-			<div class="post">
-				<div class="ava">
-					<img src="../static/res/ava.png" alt="ava">
-				</div>
-				<div class="who">
-					<span class="post_name">First Last</span>
-					<span class="post_login">@login</span>
-					<span class="post_date">17.08.19</span>
-				</div>
-				<p class="postText">text 2text 2text2</p>
-				
-				<p class="postHearts">
-					<a href="#" class="heart"><img src="../static/res/makefg.png" alt=""></a>
-					<span class="heartCounter">23</span>
-				</p>
-				<span class="time">07.59</span>
-			</div>
-		</div>
-		<div class="postWrapper postType">
-			<div class="post">
-				<div class="ava">
-					<img src="../static/res/ava.png" alt="ava">
-				</div>
-				<div class="who">
-					<span class="post_name">First Last</span>
-					<span class="post_login">@login</span>
-					<span class="post_date">17.08.19</span>
-				</div>
-				<p class="postText">text 2text 2text2</p>
-				
-				<p class="postHearts">
-					<a href="#" class="heart"><img src="../static/res/makefg.png" alt=""></a>
-					<span class="heartCounter">23</span>
-				</p>
-				<span class="time">07.59</span>
-			</div>
-		</div>
-		<div class="space">
-			🔝
-		</div>
-	</div>
-</div>
-<div class="footer">
-	<p class="copy">©BONEFERZ 2033 | telegram killer</p>
+
 </div>
 </body>
 </html>

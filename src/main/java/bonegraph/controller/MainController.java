@@ -1,4 +1,4 @@
-package cc.boneferz.bonegraph.controller;
+package bonegraph.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -22,5 +22,10 @@ public class MainController {
 		model.addAttribute("tasks", tasks);
 		
 		return "index";
+	}
+	
+	@GetMapping("/app")
+	public String app(Model model) {
+		return "app";
 	}
 }
