@@ -151,15 +151,15 @@ body {
 /*----------------------------------------------*/
 .postWrapper {
     background: #42464c;
-    width: 500px;
+    width: 550px;
     padding: 10px;
     box-shadow: 2px 2px 2px #1f2123;
     border-radius: 5px;
     margin-bottom: 10px;
 }
 .newPost {
-    /* background: #7b6e6e; */
     padding-left: 60px;
+    padding-right: 90px;
     position: relative;
 }
 
@@ -182,10 +182,9 @@ textarea.inputtext {
     background: #565a61;
     border: none;
     margin: 0px;
-    width: 415px;
+    width: 100%;
     height: 95px;
     border-radius: 5px;
-    margin-bottom: 10px;
     border: 1px solid #3e3f40;
     resize: none;
     color: #9ddebb;
@@ -202,7 +201,7 @@ textarea.inputtext {
 
 .newPost .btn {
     background: #5d6265;
-    padding: 5px 10px;
+    padding: 10px 15px;
     border-radius: 10px;
     border: 2px solid #797c7d;
     color: #9ba1a5;
@@ -211,36 +210,99 @@ textarea.inputtext {
     font-size: 14px;
     cursor: pointer;
     margin-bottom: 10px;
-}
 
+    position: absolute;
+    right: -3px;
+    overflow: hidden;
+    top: 0;
+
+    transition: 0.2s;
+}
 .newPost .btn.active {
     background: #5288a2;
     border: 2px solid #55acd6;
     color: #c2ebff;
 }
-
+.newPost .btn:hover {
+    transform: translateY(-1px);
+    background: #5f93ad;
+}
+.newPost .btn:active {
+    transition: 0.1s;
+    transform: translateY(1px);
+    background: #447a94;
+}
 textarea.inputtext:focus,
 .newPost .btn {
     outline: none;
 }
-
 .time {
     text-align: right;
     display: block;
     margin-top: -20px;
-    color: #737070;
+    color: #628e82;
     font-size: 11px;
     margin-right: 10px;
     font-weight: 400;
     user-select: none;
 }
+/*----------------------------------*/
+.post {
+    position: relative;
+    padding-left: 60px
+}
 
-
-
-
-
-
-
+.postWrapper.postType {
+    background: #425b5f;
+}
+.post_name {
+    font-size: 16px;
+    overflow: hidden;
+    font-weight: 700;
+    margin-right: 5px;
+}
+.post_login {
+    font-size: 12px;
+    color: #183135a3;
+    font-weight: 600;
+}
+.post_date {
+    position: absolute;
+    right: 0;
+    color: #62bfa7bd;
+    font-size: 14px;
+    font-weight: 700;
+}
+.postTitle {
+    font-size: 20px;
+    margin: 0;
+    text-transform: capitalize;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.postText {
+    color: #b5efd0;
+    margin: 0;
+    font-size: 15px;
+    margin-bottom: 20px
+}
+.postHearts {
+    font-size: 14px;
+    color: #91eca6;
+    font-weight: 700;
+}
+.heart {
+    width: 16px;
+    height: 16px;
+    display: block;
+    margin-right: 5px;
+}
+.postHearts {
+    display: flex;
+}
+.heartCounter {
+    user-select: none;
+}
 
 
 
