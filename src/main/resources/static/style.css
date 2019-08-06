@@ -27,6 +27,9 @@ body {
     background: #1f2123;
     border-right: 2px solid #33373e;
 }
+.side.content {
+    overflow: scroll;
+}
 .mainHead {
     margin: -10px;
     background: #080808;
@@ -239,19 +242,20 @@ textarea.inputtext:focus,
 .time {
     text-align: right;
     display: block;
-    margin-top: -20px;
     color: #628e82;
     font-size: 11px;
     margin-right: 10px;
     font-weight: 400;
     user-select: none;
+    position: absolute;
+    right: 0;
+    bottom: 3px;
 }
 /*----------------------------------*/
 .post {
     position: relative;
     padding-left: 60px
 }
-
 .postWrapper.postType {
     background: #425b5f;
 }
@@ -284,12 +288,18 @@ textarea.inputtext:focus,
     color: #b5efd0;
     margin: 0;
     font-size: 15px;
-    margin-bottom: 20px
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #3c5356;
+    border-radius: 5px;
+    margin-right: 10px;
 }
 .postHearts {
     font-size: 14px;
     color: #91eca6;
     font-weight: 700;
+    display: flex;
+    margin-bottom: 6px;
 }
 .heart {
     width: 16px;
@@ -303,11 +313,45 @@ textarea.inputtext:focus,
 .heartCounter {
     user-select: none;
 }
+.postWrapper.postType.other {
+    background: #4b4369;
+}
 
+.postWrapper.postType.other .postText {
+    background: #443b65;
+    color: #ecb5ef;
+}
+.postWrapper.postType.other .postHearts {
+    color: #f18efb;
+}
+.postWrapper.postType.other .ava {
+    border: 2px solid #2d1d2963;
+}
+.postWrapper.postType.other .post_login {
+    color: #301835a3;
+}
+.postWrapper.postType.other .post_date {
+    color: #7a62bff5;
+}
+.postWrapper.postType.other .time {
+    color: #74628e;
+}
+.space {
+    height: 70px;
+    text-align: center;
+    font-size: 25px;
+    color: #17121d;
+}
 
+/*------------------------------------------------------------------------*/
 
-
-
+::-webkit-scrollbar { width: 3px; height: 3px;}
+::-webkit-scrollbar-button {  background-color: #666; }
+::-webkit-scrollbar-track {  background-color: #999;}
+::-webkit-scrollbar-track-piece { background-color: #000000;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: #999;}
+::-webkit-resizer { background-color: #666;}
 
 
 
