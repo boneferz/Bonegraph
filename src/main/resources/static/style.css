@@ -83,6 +83,10 @@ body {
     margin: -10px;
     border-bottom: 1px solid #2b2e33;
 }
+.postWrapper.input {
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
 .info > span {
     text-align: center;
     margin-left: 25px;
@@ -105,6 +109,10 @@ body {
 }
 .links .link {
     display: block;
+}
+.links .link .active {
+    color: #7bc6d4;
+    background: #35454c;
 }
 .links a {
     display: block;
@@ -337,7 +345,7 @@ textarea.inputtext:focus,
     color: #74628e;
 }
 .space {
-    height: 70px;
+    height: 100px;
     text-align: center;
     font-size: 25px;
     color: #17121d;
