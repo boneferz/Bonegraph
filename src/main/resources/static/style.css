@@ -29,6 +29,7 @@ body {
 }
 .side.content {
     overflow: scroll;
+    height: 95vh;
 }
 .mainHead {
     margin: -10px;
@@ -146,7 +147,7 @@ body {
 }
 /*----------------------------------------------*/
 .footer {
-    height: 55px;
+    height: 5.45vh;
     background: #060606;
     position: absolute;
     width: 100vw;
@@ -354,11 +355,11 @@ textarea.inputtext:focus,
     color: #c54240;
 }
 .links .link.exit a {
-    color: #540000;
-    background: #190e0e;
+    color: #1c1d1f;
+    background: #27282be0;
 }
 .links .link.exit a .icon {
-    color: #920000;
+    color: #631e1e;
 }
 
 /*------------------------------------------------------------------------*/
