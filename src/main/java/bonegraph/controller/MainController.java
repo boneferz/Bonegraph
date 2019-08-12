@@ -12,40 +12,49 @@ import java.util.List;
 @Controller
 public class MainController {
 	
+	public static String CHAT = "chat";
+	public static String INDEX = "index";
+	public static String APP = "app";
+	
 	@Value("${props.data}")
 	private String message;
-	
-	private List<String> tasks = Arrays.asList("a", "b", "c", "d", "e", "f", "g");
 	
 	@GetMapping(path = {"/", "/index"})
 	public String index(Model model) {
 		model.addAttribute("message", message);
-		model.addAttribute("tasks", tasks);
 		
-		return "index";
+		return INDEX;
 	}
 	
 	@GetMapping("/app")
 	public String app(Model model) {
-		return "app";
+		return APP;
 	}
 	
 	@GetMapping("/chat")
 	public String chat(Model model) {
 		model.addAttribute("messages", DataBase.posts);
-		return "chat";
+		return CHAT;
+	}
+	
+	@GetMapping("/clear")
+	public String clear(Model model) {
+		model.addAttribute("messages", DataBase.posts);
+		return CHAT;
 	}
 	
 	@PostMapping("/chat")
-	public String addText(Model model,
-						  @RequestParam(value="foo", required = false) String text) {
-		System.out.println("text = " + text);
+	public String addText(Model model, @RequestParam(value="foo", required = false) String text) {
 		
-		if (text != null) {
+		if (text.trim() != null && text.length() > 0) {
+			if(text.length() > 450) {
+				text = text.substring(0, 450);
+			}
+			
 			DataBase.posts.add(0, text);
 		}
 		
 		model.addAttribute("messages", DataBase.posts);
-		return "chat";
+		return "redirect:" + CHAT;
 	}
 }

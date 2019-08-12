@@ -18,33 +18,34 @@
 		<div class="postWrapper input">
 			<div class="newPost">
 				<div class="ava"></div>
-				
 				<form action="#" th:action="@{/chat}" method="post">
-					<textarea class="inputtext" name="foo" id="" cols="30" rows="10" placeholder="Input your message"></textarea>
+					<textarea class="inputtext" name="foo" id="" cols="30"
+							  rows="10" placeholder="Input your message" maxlength="450"></textarea>
 					<button type="submit" class="btn active">submit</button>
 				</form>
-				
 			</div>
+			<span class="max_symbols">max symbols: 450</span>
 		</div>
 		<div th:each="message : ${messages}" class="postWrapper postType">
 			<div class="post">
 				<div class="ava"></div>
 				<div class="who">
 					<span class="post_name">First Last</span>
-					<a href="#"><span class="post_login">@login</span></a>
+					<a href="#" class="post_login">@login</a>
 					<span class="post_date">17.08.19</span>
 				</div>
-				<p class="postText" th:text="${message}">
-					text 2text 2text 2text 2text 2text 2text
-					2text 2text 2text 2text
-					2text 2text 2text 2
+				<p class="postText">
+					<span th:text="'#'"></span>
+					<span th:text="${messages.indexOf(message)}"></span>
+					<span th:text="${message}"></span>
 				</p>
 				<span class="time">07.59</span>
+				<a href="#" class="delete">delete</a>
 			</div>
 		</div>
 		
 		<div class="space">
-			🔝
+			<img class="photoBottom" src="../static/res/left-arrow.png" th:src="@{/res/left-arrow.png}">
 		</div>
 	</div>
 </div>

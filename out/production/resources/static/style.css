@@ -10,25 +10,14 @@ body {
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     color: #e7efec;
-    background: #2f2f2f;
+    background: #2b2f35;
 }
 
 /*---------------------*/
-.delete {
-    font-size: 12px;
-    text-decoration: none;
-    color: #ff7f7f3d;
-    transition: .2s;
-}
-.delete:hover {
-    text-decoration: underline;
-    color: #c71414c2;
-}
+
 .wrapper {
     display: flex;
     height: 100vh;
-    justify-content: center;
-    width: 1000px;
 }
 .side {
     padding: 10px;
@@ -40,9 +29,7 @@ body {
 }
 .side.content {
     overflow: scroll;
-    height: 101vh;
-    margin-bottom: -15px;
-    padding-right: 150px;
+    height: 95vh;
 }
 .mainHead {
     margin: -10px;
@@ -100,7 +87,6 @@ body {
 .postWrapper.input {
     margin-top: 10px;
     margin-bottom: 25px;
-    text-align: center;
 }
 .info > span {
     text-align: center;
@@ -110,10 +96,10 @@ body {
     color: #afafaf;
 }
 .info .param {
-    margin: 2px 35px;
-    font-size: 13px;
-    color: #656565;
-}
+     margin: 2px 35px;
+     font-size: 13px;
+     color: #656565;
+ }
 .info .param .value {
     color: #5b8473;
 }
@@ -184,41 +170,47 @@ body {
     margin-bottom: 10px;
 }
 .newPost {
-    padding-left: 75px;
+    padding-left: 60px;
     padding-right: 90px;
     position: relative;
 }
+
 .ava {
     width: 60px;
-    background: #364a4c;
+    /* background: red; */
     height: 60px;
-    border-radius: 10%;
+    border-radius: 50%;
     position: absolute;
-    left: 2px;
+    left: -5px;
     overflow: hidden;
-    border: 2px solid #475f4d;
+    border: 2px solid #2f4234;
 }
+
 img {
     width: 100%;
 }
+
 textarea.inputtext {
     background: #565a61;
+    border: none;
     margin: 0px;
     width: 100%;
     height: 95px;
     border-radius: 5px;
     border: 1px solid #3e3f40;
     resize: none;
-    color: #aab6bd;
+    color: #9ddebb;
     font-size: 14px;
     padding: 10px 10px;
     overflow: hidden;
     padding-right: 5px;
     line-height: 16px;
 }
+
 .who {
     margin-bottom: 10px;
 }
+
 .newPost .btn {
     background: #5d6265;
     padding: 10px 15px;
@@ -259,46 +251,39 @@ textarea.inputtext:focus,
 .time {
     text-align: right;
     display: block;
-    color: #4d8879bd;
+    color: #628e82;
     font-size: 11px;
     margin-right: 10px;
     font-weight: 400;
     user-select: none;
     position: absolute;
-    right: -12px;
-    bottom: -1px;
+    right: 0;
+    bottom: 3px;
 }
-
 /*----------------------------------*/
 .post {
     position: relative;
-    padding-left: 75px;
+    padding-left: 60px
 }
 .postWrapper.postType {
-    background: #26383a;
+    background: #425b5f;
 }
 .post_name {
-    font-size: 18px;
+    font-size: 16px;
     overflow: hidden;
     font-weight: 700;
     margin-right: 5px;
-    border: 1px dashed #f5deb330;
-    padding: 0 5px;
-    border-radius: 5px;
-    background: #f0f8ff0d;
-    cursor: pointer;
 }
 .post_login {
     font-size: 12px;
-    color: #117153;
+    color: #183135a3;
     font-weight: 600;
 }
 .post_date {
     position: absolute;
-    right: -3px;
-    color: #4d8879bd;
-    font-size: 12px;
-    top: -5px;
+    right: 0;
+    color: #62bfa7bd;
+    font-size: 14px;
     font-weight: 700;
 }
 .postTitle {
@@ -309,21 +294,14 @@ textarea.inputtext:focus,
     margin-bottom: 10px;
 }
 .postText {
-    color: #a5c1b2;
+    color: #b5efd0;
     margin: 0;
     font-size: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     padding: 10px;
-    background: #2e3e40;
+    background: #3c5356;
     border-radius: 5px;
     margin-right: 10px;
-    box-shadow: 2px 2px 2px #1f212317;
-    overflow-wrap: break-word;
-}
-.max_symbols {
-    text-align: center;
-    font-size: 11px;
-    color: #565a61;
 }
 .postHearts {
     font-size: 14px;
@@ -355,10 +333,6 @@ textarea.inputtext:focus,
 .postWrapper.postType.other .postHearts {
     color: #f18efb;
 }
-.postWrapper .newPost .ava {
-    background: #45494e;
-    border: 2px solid #383c42;
-}
 .postWrapper.postType.other .ava {
     border: 2px solid #2d1d2963;
 }
@@ -386,13 +360,6 @@ textarea.inputtext:focus,
 }
 .links .link.exit a .icon {
     color: #631e1e;
-}
-
-.photoBottom {
-    width: 24px;
-    transform: rotate(90deg);
-    filter: opacity(0.35);
-    user-select: none;
 }
 
 /*------------------------------------------------------------------------*/
