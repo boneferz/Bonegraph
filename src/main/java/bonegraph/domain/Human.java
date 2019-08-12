@@ -38,4 +38,13 @@ public class Human {
 	public void setMoney(Boolean money) {
 		this.money = money;
 	}
+	
+	@Override
+	public String toString() {
+		return "Human {" +
+				"name='" + name + '\'' +
+				", age=" + age +
+				", money=" + money +
+				'}';
+	}
 }

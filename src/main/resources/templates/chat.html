@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<!--/*@thymesVar id="message" type="bonegraph.domain.Message"*/-->
+<!--/*@thymesVar id="messages" type="java.util.List<bonegraph.domain.Message>"*/-->
 <head>
 	<meta charset="UTF-8">
-	
 	<title>Bonegraph</title>
-	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic"
 		  rel="stylesheet">
 	<link href="../static/style-chat.css" th:href="@{/style-chat.css}" rel="stylesheet"/>
@@ -12,27 +13,12 @@
 	<link rel="shortcut icon" href="../static/res/ico1.png" th:href="@{/res/ico1.png}">
 </head>
 <body>
-
 <div class="wrapper">
-	<!-- -------------------------------------- -->
 	<div class="side content">
-		
-		<div class="userBlock">
-			<p>text</p>
-			<p th:text="fooofooo">text 2</p>
-			<!--/*@thymesVar id="name" type=""*/-->
-			<p th:text="${name}">text 3</p>
-			<p th:text="${name} + ' (text 4) '">text 4</p>
-			
-			
-			<p th:text="${robert} + ' (text 4) '">text 4</p>
-			<p th:text="${human} + ' (text 4) '">text 4</p>
-		</div>
-		
 		<div class="postWrapper input">
 			<div class="newPost">
 				<div class="ava"></div>
-				<form action="#" th:action="@{/chat}" method="post">
+				<form action="#" th:action="@{/db/chat}" method="post">
 					<textarea class="inputtext" name="foo" id="" cols="30"
 							  rows="10" placeholder="Input your message" maxlength="450"></textarea>
 					<button type="submit" class="btn active">submit</button>
@@ -50,26 +36,22 @@
 					<span class="post_date">17.08.19</span>
 				</div>
 				<p class="postText">
-					<span th:text="'#' + ${messages.size() - messages.indexOf(message)}"
+					<span th:text="'#' + ${message.id}"
 						  style="color: yellow; size: 11px"></span>
 					<br>
 					<br>
-					<span th:text="${message}">
+					<span th:text="${message.getText()}">
 						Thymeleaf provides you with 'each' loop, and you can use it through the
 						return "loop-simple-example" ; ... It contains the information telling you about the
 						current state of loop, for example, the number of items of loop,
 						current index of loop
 					</span>
-					<br>
-					<br>
-					<a href="#" th:href="@{'/clear' + '?index=' + ${messages.indexOf(message)}}">clear</a>
-					<a href="#" th:href="@{'/delete' + '?index=' + ${messages.indexOf(message)}}">delete</a>
 				</p>
 				<span class="time">07.59</span>
-				<a href="#" class="delete">delete</a>
+				<a href="#" class="delete" th:href="@{'/db/delete' + '?index=' + ${message.id}}">delete</a>
+				<a href="#" class="delete edit" th:href="@{'/db/edit' + '?index=' + ${message.id}}">edit</a>
 			</div>
 		</div>
-		
 		<div class="space">
 			<img class="photoBottom" src="../static/res/left-arrow.png" th:src="@{/res/left-arrow.png}">
 		</div>

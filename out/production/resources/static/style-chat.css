@@ -22,7 +22,7 @@ body {
 }
 .delete:hover {
     text-decoration: underline;
-    color: rgba(215, 20, 20, 0.76);
+    color: rgba(255, 68, 68, 0.83);
 }
 .wrapper {
     display: flex;
@@ -318,7 +318,7 @@ textarea.inputtext:focus,
     font-size: 15px;
     margin-bottom: 5px;
     padding: 10px;
-    background: #2e3e40;
+    background: #374a4c;
     border-radius: 5px;
     margin-right: 10px;
     box-shadow: 2px 2px 2px #1f212317;
@@ -421,7 +421,12 @@ textarea.inputtext:focus,
     color: #d8d880;
     /* font-weight: 600; */
 }
-
+.delete.edit {
+    color: #fff07f7a;
+}
+.delete.edit:hover {
+    color: #ffe312c2;
+}
 
 
 

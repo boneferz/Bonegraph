@@ -1,5 +1,6 @@
 package bonegraph.controller;
 
+
 import bonegraph.data.DataBase;
 import bonegraph.domain.Human;
 import org.springframework.beans.factory.annotation.Value;
@@ -7,15 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.List;
+import static bonegraph.data.Common.*;
 
 @Controller
 public class MainController {
 	
-	public static String CHAT = "chat";
-	public static String INDEX = "index";
-	public static String APP = "app";
 	
 	private String name ="ElonMask";
 	private int counter = 0;
