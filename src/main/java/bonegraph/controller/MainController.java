@@ -1,9 +1,10 @@
 package bonegraph.controller;
 
+import bonegraph.data.DataBase;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,5 +28,24 @@ public class MainController {
 	@GetMapping("/app")
 	public String app(Model model) {
 		return "app";
+	}
+	
+	@GetMapping("/chat")
+	public String chat(Model model) {
+		model.addAttribute("messages", DataBase.posts);
+		return "chat";
+	}
+	
+	@PostMapping("/chat")
+	public String addText(Model model,
+						  @RequestParam(value="foo", required = false) String text) {
+		System.out.println("text = " + text);
+		
+		if (text != null) {
+			DataBase.posts.add(0, text);
+		}
+		
+		model.addAttribute("messages", DataBase.posts);
+		return "chat";
 	}
 }
