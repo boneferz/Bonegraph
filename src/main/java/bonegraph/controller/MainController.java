@@ -1,6 +1,7 @@
 package bonegraph.controller;
 
 import bonegraph.data.DataBase;
+import bonegraph.domain.Human;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,13 +17,16 @@ public class MainController {
 	public static String INDEX = "index";
 	public static String APP = "app";
 	
+	private String name ="ElonMask";
+	private int counter = 0;
+	
+	private Human robert;
+	
 	@Value("${props.data}")
 	private String message;
 	
 	@GetMapping(path = {"/", "/index"})
 	public String index(Model model) {
-		model.addAttribute("message", message);
-		
 		return INDEX;
 	}
 	
@@ -34,13 +38,26 @@ public class MainController {
 	@GetMapping("/chat")
 	public String chat(Model model) {
 		model.addAttribute("messages", DataBase.posts);
+		model.addAttribute("name", name);
+		model.addAttribute("counter", counter);
+		model.addAttribute("messagesSize", DataBase.posts.size());
+		
+		robert = new Human("Roberto", 28, true);
+		
+		model.addAttribute("human", robert);
 		return CHAT;
 	}
 	
 	@GetMapping("/clear")
-	public String clear(Model model) {
-		model.addAttribute("messages", DataBase.posts);
-		return CHAT;
+	public String clear(Model model, @RequestParam int index) {
+		DataBase.posts.set(index, "-empty-");
+		return "redirect:" + CHAT;
+	}
+	
+	@GetMapping("/delete")
+	public String delete(Model model, @RequestParam int index) {
+		DataBase.posts.remove(index);
+		return "redirect:" + CHAT;
 	}
 	
 	@PostMapping("/chat")

@@ -13,6 +13,19 @@
     </inspection_tool>
     <inspection_tool class="HtmlFormInputWithoutLabel" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="HtmlRequiredAltAttribute" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="myValues">
+        <value>
+          <list size="4">
+            <item index="0" class="java.lang.String" itemvalue="th:text" />
+            <item index="1" class="java.lang.String" itemvalue="th:each" />
+            <item index="2" class="java.lang.String" itemvalue="th:href" />
+            <item index="3" class="java.lang.String" itemvalue="th:action" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
     <inspection_tool class="MismatchedCollectionQueryUpdate" enabled="false" level="WARNING" enabled_by_default="false">
       <option name="queryNames">
         <value />

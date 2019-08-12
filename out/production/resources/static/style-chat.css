@@ -17,12 +17,12 @@ body {
 .delete {
     font-size: 12px;
     text-decoration: none;
-    color: #ff7f7f3d;
+    color: #ff7f7f7a;
     transition: .2s;
 }
 .delete:hover {
     text-decoration: underline;
-    color: #c71414c2;
+    color: rgba(215, 20, 20, 0.76);
 }
 .wrapper {
     display: flex;
@@ -276,6 +276,10 @@ textarea.inputtext:focus,
 }
 .postWrapper.postType {
     background: #26383a;
+    transition: .2s;
+}
+.postWrapper.postType:hover {
+    background: #293c3e;
 }
 .post_name {
     font-size: 18px;
@@ -394,9 +398,7 @@ textarea.inputtext:focus,
     filter: opacity(0.35);
     user-select: none;
 }
-
 /*------------------------------------------------------------------------*/
-
 ::-webkit-scrollbar { width: 3px; height: 3px;}
 ::-webkit-scrollbar-button {  background-color: #666; }
 ::-webkit-scrollbar-track {  background-color: #999;}
@@ -404,9 +406,21 @@ textarea.inputtext:focus,
 ::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
 ::-webkit-scrollbar-corner { background-color: #999;}
 ::-webkit-resizer { background-color: #666;}
+/*------------------------------------------------------------------------*/
+.counter_allposts {
+    text-align: center;
+    color: #a0a09a;
+    font-size: 13px;
+    font-style: normal;
+    text-transform: capitalize;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
 
-
-
+.counter_allposts .counter {
+    color: #d8d880;
+    /* font-weight: 600; */
+}
 
 
 
