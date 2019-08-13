@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<!--/*@thymesVar id="message" type="bonegraph.domain.Message"*/-->
+<!--/*@thymesVar id="messages" type="java.util.List<bonegraph.domain.Message>"*/-->
+<!--/*@thymesVar id="currentText" type="java.lang.String"*/-->
+<!--/*@thymesVar id="currentTextIndex" type="java.lang.Long"*/-->
+<head>
+	<meta charset="UTF-8">
+	<title>Bonegraph</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic"
+		  rel="stylesheet">
+	<link href="../static/css/style-chat.css" th:href="@{/css/style-chat.css}" rel="stylesheet"/>
+	<link href="../static/css/normalize.css" th:href="@{/css/normalize.css}" rel="stylesheet"/>
+	<link rel="shortcut icon" href="../static/image/ico1.png" th:href="@{/static/image/ico1.png}">
+	<script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+</head>
+<body>
+<div class="wrapper">
+	<div class="side content">
+		<div class="postWrapper input">
+			<div class="newPost">
+				<div class="ava"></div>
+				<form action="#" th:action="@{'/db/edit-save' + '?index=' + ${currentTextIndex}}" method="post">
+					<textarea class="inputtext" name="foo" cols="30"
+							  rows="10" placeholder="Input your message"
+							  maxlength="450" th:text="${currentText}">
+					</textarea>
+					<button type="submit" class="btn active">save</button>
+				</form>
+			</div>
+			<span class="max_symbols">max symbols: 450</span>
+		</div>
+		<p class="counter_allposts"> all posts: <span class="counter" th:text="${messages.size()}">24</span></p>
+		<div th:each="message : ${messages}" class="postWrapper postType">
+			<div class="post">
+				<div class="ava"></div>
+				<div class="who">
+					<span class="post_name">First Last</span>
+					<a href="#" class="post_login">@login</a>
+					<span class="post_date">17.08.19</span>
+				</div>
+				<p class="postText">
+					<span th:text="'#' + ${message.getId()}"
+						  style="color: yellow; size: 11px"></span>
+					<br>
+					<br>
+					<span th:text="${message.getText()}">
+						Thymeleaf provides you with 'each' loop, and you can use it through the
+						return "loop-simple-example" ; ... It contains the information telling you about the
+						current state of loop, for example, the number of items of loop,
+						current index of loop
+					</span>
+				</p>
+				<span class="time">07.59</span>
+				<a href="#" class="delete" th:href="@{'/db/delete' + '?index=' + ${message.getId()}}">delete</a>
+				<a href="#" class="delete edit" th:href="@{'/db/edit' + '?index=' + ${message.getId()}}">edit</a>
+			</div>
+		</div>
+		<div class="space">
+			<img class="photoBottom" src="../static/image/left-arrow.png" th:src="@{/static/image/left-arrow.png}">
+		</div>
+	</div>
+</div>
+</div>
+<script> </script>
+</body>
+</html>

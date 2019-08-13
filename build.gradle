@@ -26,5 +26,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.17'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+

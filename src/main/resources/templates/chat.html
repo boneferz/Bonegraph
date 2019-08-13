@@ -2,15 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <!--/*@thymesVar id="message" type="bonegraph.domain.Message"*/-->
 <!--/*@thymesVar id="messages" type="java.util.List<bonegraph.domain.Message>"*/-->
+<!--/*@thymesVar id="foo" type="int"*/-->
+<!--/*@thymesVar id="someVariable" type="int"*/-->
 <head>
 	<meta charset="UTF-8">
 	<title>Bonegraph</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic"
 		  rel="stylesheet">
-	<link href="../static/style-chat.css" th:href="@{/style-chat.css}" rel="stylesheet"/>
-	<link href="../static/normalize.css" th:href="@{/normalize.css}" rel="stylesheet"/>
-	<link rel="shortcut icon" href="../static/res/ico1.png" th:href="@{/res/ico1.png}">
+	<link href="../static/css/style-chat.css" th:href="@{/css/style-chat.css}" rel="stylesheet"/>
+	<link href="../static/css/normalize.css" th:href="@{/css/normalize.css}" rel="stylesheet"/>
+	<link rel="shortcut icon" href="../static/image/ico1.png" th:href="@{/static/image/ico1.png}">
 </head>
 <body>
 <div class="wrapper">
@@ -19,7 +21,7 @@
 			<div class="newPost">
 				<div class="ava"></div>
 				<form action="#" th:action="@{/db/chat}" method="post">
-					<textarea class="inputtext" name="foo" id="" cols="30"
+					<textarea class="inputtext" name="foo" cols="30"
 							  rows="10" placeholder="Input your message" maxlength="450"></textarea>
 					<button type="submit" class="btn active">submit</button>
 				</form>
@@ -36,7 +38,7 @@
 					<span class="post_date">17.08.19</span>
 				</div>
 				<p class="postText">
-					<span th:text="'#' + ${message.id}"
+					<span th:text="'#' + ${message.getId()}"
 						  style="color: yellow; size: 11px"></span>
 					<br>
 					<br>
@@ -48,15 +50,30 @@
 					</span>
 				</p>
 				<span class="time">07.59</span>
-				<a href="#" class="delete" th:href="@{'/db/delete' + '?index=' + ${message.id}}">delete</a>
-				<a href="#" class="delete edit" th:href="@{'/db/edit' + '?index=' + ${message.id}}">edit</a>
+				<a href="#" class="delete" th:href="@{'/db/delete' + '?index=' + ${message.getId()}}">delete</a>
+				<a href="#" class="delete" onclick="dodajAktywne(this)"
+				   th:href="@{'/db/edit' + '?index=' + ${message.getId()}}">edit</a>
+			
 			</div>
 		</div>
 		<div class="space">
-			<img class="photoBottom" src="../static/res/left-arrow.png" th:src="@{/res/left-arrow.png}">
+			<img class="photoBottom" src="../static/image/left-arrow.png" th:src="@{/image/left-arrow.png}">
 		</div>
 	</div>
 </div>
 </div>
+
+<script th:inline="javascript">
+    function dodajAktywne(elem) {
+        var a = document.getElementsByClassName('postWrapper active');
+        for (i = 0; i < a.length; i++) {
+            a[i].classList.remove('active')
+        }
+        elem.parentNode.parentNode.classList.add('active');
+    }
+    // this.parentNode.id
+</script>
+
+
 </body>
 </html>
