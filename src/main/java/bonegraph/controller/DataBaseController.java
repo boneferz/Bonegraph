@@ -5,9 +5,7 @@ import bonegraph.domain.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.List;
@@ -51,13 +49,16 @@ public class DataBaseController {
 		return CHAT_EDIT;
 	}
 	
-	@PostMapping("/db/chat")
-	public String addText(Model model, @RequestParam(value = "foo", required = false) String text) {
+	@PostMapping("/db/add")
+	public String addText(Model model,
+						  @RequestParam(value = "foo", required = false) String text) {
 		text = validateText(text);
 		
 		if (text != null) {
 			messageService.save(new Message(text));
 		}
+		
+		System.out.println(foo);
 		
 		return "redirect:" + CONTEXT + CHAT;
 	}
@@ -85,5 +86,22 @@ public class DataBaseController {
 			return str;
 		}
 		return null;
+	}
+	
+	
+	@ResponseBody
+	@GetMapping(value = "/greeting", produces = "application/json")
+	public String greeting() {
+		return "{\"id\":1,\"content\":\"Hello, World!\"}";
+	}
+	
+	@RequestMapping(value = "/guests", method = RequestMethod.GET)
+	public String showGuestList(Model model) {
+		List<Message> messages = messageService.getAll();
+		Collections.reverse(messages);
+		
+		model.addAttribute("messages", messages);
+		
+		return "fragment-1 :: resultsList";
 	}
 }

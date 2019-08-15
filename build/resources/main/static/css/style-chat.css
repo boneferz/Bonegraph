@@ -277,6 +277,7 @@ textarea.inputtext:focus,
 .postWrapper.postType {
     background: #26383a;
     transition: background 0.1s ease;
+    border: 1px solid #374a4c;
 }
 .postWrapper.postType:hover {
     background: #293c3e;
@@ -286,7 +287,6 @@ textarea.inputtext:focus,
     overflow: hidden;
     font-weight: 700;
     margin-right: 5px;
-    border: 1px dashed #f5deb330;
     padding: 0 5px;
     border-radius: 5px;
     background: #f0f8ff0d;
@@ -435,7 +435,10 @@ textarea.inputtext:focus,
 .postWrapper.active .postText {
     color: #b19775;
 }
-
+.postText .post_counter {
+    color: #fa94ff;
+    font-size: 12px;
+}
 
 
 

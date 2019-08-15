@@ -13,22 +13,60 @@
 	<link href="../static/css/style-chat.css" th:href="@{/css/style-chat.css}" rel="stylesheet"/>
 	<link href="../static/css/normalize.css" th:href="@{/css/normalize.css}" rel="stylesheet"/>
 	<link rel="shortcut icon" href="../static/image/ico1.png" th:href="@{/static/image/ico1.png}">
+	<script src="../static/js/jquery-3.4.1.js" th:src="@{/js/jquery-3.4.1.js}"></script>
+	<script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
 </head>
 <body>
 <div class="wrapper">
 	<div class="side content">
 		<div class="postWrapper input">
+			
+			<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+			<button id="btn">Get External Content</button>
+			
+			
+<!--			<form>-->
+<!--				<span class="subtitle">Guest list form</span>-->
+<!--				<div class="listBlock">-->
+<!--					<div class="search-block">-->
+<!--						<input type="text" id="searchSurname" name="searchSurname"/>-->
+<!--						<br />-->
+<!--						<label for="searchSurname" >Search label:</label>-->
+<!--						-->
+<!--						<button id="searchButton" name="searchButton" type="button"-->
+<!--								onclick="retrieveGuests()" >Search button</button>-->
+<!--					</div>-->
+<!--					-->
+<!--					&lt;!&ndash; Results block &ndash;&gt;-->
+<!--					-->
+<!--				</div>-->
+<!--			</form>-->
+			
+			<div>
+				<p class="greeting-id">The ID is </p>
+				<p class="greeting-content">The content is </p>
+			</div>
+			
+			<span onclick="getAjax()" style="color: orangered">show AJAX</span>
+			<br>
+			<br>
+			
 			<div class="newPost">
 				<div class="ava"></div>
-				<form action="#" th:action="@{/db/chat}" method="post">
-					<textarea class="inputtext" name="foo" cols="30"
-							  rows="10" placeholder="Input your message" maxlength="450"></textarea>
-					<button type="submit" class="btn active">submit</button>
+<!--				<form action="#" th:action="@{/db/add}" method="post">-->
+				<form action="#">
+					<textarea class="inputtext" name="foo" cols="30" rows="10"
+							  placeholder="Input your message" maxlength="450"></textarea>
+					<button class="btn active" onclick="createPost(this)" >submit</button>
 				</form>
 			</div>
 			<span class="max_symbols">max symbols: 450</span>
 		</div>
+		
 		<p class="counter_allposts"> all posts: <span class="counter" th:text="${messages.size()}">24</span></p>
+		
+		<div id="resultsBlock"></div>
+		
 		<div th:each="message : ${messages}" class="postWrapper postType">
 			<div class="post">
 				<div class="ava"></div>
@@ -38,8 +76,7 @@
 					<span class="post_date">17.08.19</span>
 				</div>
 				<p class="postText">
-					<span th:text="'#' + ${message.getId()}"
-						  style="color: yellow; size: 11px"></span>
+					<span class="post_counter" th:text="${message.getId()}"></span>
 					<br>
 					<br>
 					<span th:text="${message.getText()}">
@@ -51,9 +88,8 @@
 				</p>
 				<span class="time">07.59</span>
 				<a href="#" class="delete" th:href="@{'/db/delete' + '?index=' + ${message.getId()}}">delete</a>
-				<a href="#" class="delete" onclick="dodajAktywne(this)"
+				<a href="#" class="delete edit" onclick="dodajAktywne(this)"
 				   th:href="@{'/db/edit' + '?index=' + ${message.getId()}}">edit</a>
-			
 			</div>
 		</div>
 		<div class="space">
