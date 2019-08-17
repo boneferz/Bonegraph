@@ -19,24 +19,18 @@ public class DataBaseController {
 	private int foo = 123;
 	@Autowired private MessageService messageService;
 	
-	@GetMapping("/db/chat")
-	public String chat(Model model) {
-		List<Message> messages = messageService.getAll();
-		Collections.reverse(messages);
-		
-		model.addAttribute("messages", messages);
-		model.addAttribute("foo", foo);
-		return CHAT;
+	@ResponseBody
+	@GetMapping(value = "/greeting", produces = "application/json")
+	public String greeting() {
+		return "{\"id\":1,\"content\":\"Hello, World!\"}";
 	}
 	
-	@GetMapping("/db/delete")
 	public String delete(Model model, @RequestParam Long index) {
 		messageService.deleteById(index);
 		
 		return "redirect:" + CONTEXT + CHAT;
 	}
 	
-	@GetMapping("/db/edit")
 	public String edit(Model model, @RequestParam Long index) {
 		List<Message> messages = messageService.getAll();
 		Collections.reverse(messages);
@@ -49,7 +43,6 @@ public class DataBaseController {
 		return CHAT_EDIT;
 	}
 	
-	@PostMapping("/db/add")
 	public String addText(Model model,
 						  @RequestParam(value = "foo", required = false) String text) {
 		text = validateText(text);
@@ -63,7 +56,6 @@ public class DataBaseController {
 		return "redirect:" + CONTEXT + CHAT;
 	}
 	
-	@PostMapping("/db/edit-save")
 	public String editSave(Model model,
 						   @RequestParam(value = "foo", required = false) String text,
 						   @RequestParam Long index) {
@@ -88,14 +80,6 @@ public class DataBaseController {
 		return null;
 	}
 	
-	
-	@ResponseBody
-	@GetMapping(value = "/greeting", produces = "application/json")
-	public String greeting() {
-		return "{\"id\":1,\"content\":\"Hello, World!\"}";
-	}
-	
-	@RequestMapping(value = "/guests", method = RequestMethod.GET)
 	public String showGuestList(Model model) {
 		List<Message> messages = messageService.getAll();
 		Collections.reverse(messages);
