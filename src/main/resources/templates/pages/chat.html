@@ -37,13 +37,12 @@
 					<a href="#" class="post_login">@steve9091</a>
 					<span class="post_date">17.08.19</span>
 				</div>
-				<p class="postText"><span class="post_counter" th:text="${'#' + message.getId()}"></span><span th:text="${message.getText()}">
+				<p class="postText"><span class="post_counter" th:text="${'#' + message.getId()}"></span><br><span th:text="${message.getText()}">
 						Thymeleaf provides you with 'each' loop, and you can use it through the
 						return "loop-simple-example" ; ... It contains the information telling you about the
 						current state of loop, for example, the number of items of loop,
 						current index of loop
-					</span>
-				</p>
+				</span></p>
 				<span class="time">07.59</span>
 				<a class="delete deletePost">delete</a>
 				<a class="delete edit editPost">edit</a>

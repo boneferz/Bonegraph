@@ -67,7 +67,11 @@ $('.photoBottom.space_up').click(function() {
 // --------------------------------------------------------------------- //
 
 $('.content').on('click', '.editPost', function() {
-	$(this).parent().parent('.postWrapper.postType').css('background', 'orange');
+	$(this).siblings('.postText').addClass('editing');
+	$('#send_newMessage_text').addClass('editing');
+
+	$('#send_newMessage_text').val($(this).html());
+
 	var post = $(this).parent().parent('.postWrapper.postType');
 	var postIndex = post.index('.postWrapper.postType');
 	console.log('edit: ' + postIndex);
@@ -78,7 +82,6 @@ $('.content').on('click', '.editPost', function() {
 // --------------------------------------------------------------------- //
 
 $('.content').on('click', '.deletePost', function() {
-	$(this).parent().parent('.postWrapper.postType').css('background', 'red');
 	var post = $(this).parent().parent('.postWrapper.postType');
 	var postIndex = post.index('.postWrapper.postType');
 	console.log('postIndex: ' + postIndex);

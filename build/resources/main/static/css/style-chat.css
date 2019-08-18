@@ -567,8 +567,15 @@ span.ava_symbol {
     cursor: pointer;
 }
 
+.postText.editing {
+    background: #3f676b;
+    outline: 2px dashed #ff8d00;
+}
 
-
+#send_newMessage_text.editing {
+    background: #2b2d31;
+    outline: 2px dashed #ff8d00;
+}
 
 
 
