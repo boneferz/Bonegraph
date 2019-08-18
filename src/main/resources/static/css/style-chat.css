@@ -237,6 +237,7 @@ body {
     top: 2px;
     border-radius: 50%;
     text-align: center;
+    user-select: none;
 }
 
 img {
@@ -287,13 +288,13 @@ textarea.inputtext {
     color: #c2ebff;
 }
 
-.newPost .btn:hover {
+.newPost .btn.active:hover {
     transform: translateY(-1px);
     background: #5f93ad;
     filter: drop-shadow(0px 0px 6px #4483a2);
 }
 
-.newPost .btn:active {
+.newPost .btn.active:active {
     transition: 0.1s;
     transform: translateY(1px);
     background: #447a94;
@@ -388,7 +389,7 @@ textarea.inputtext:focus,
 .max_symbols {
     text-align: center;
     font-size: 11px;
-    color: #565a61;
+    color: #758790;
 }
 
 .postHearts {
@@ -603,7 +604,25 @@ span.ava_symbol {
 .postChanges {
     user-select: none;
 }
-.btn.cancel {
-
+.newPost .btn.cancel {
+    top: 53px;
+    display: none;
+}
+.newPost .btn.cancel:hover {
+    transform: translateY(-1px);
+    filter: drop-shadow(0px 0px 6px #5f686b);
+    border: 2px solid #8a9092;
 }
 
+.newPost .btn.cancel:active {
+    transition: 0.1s;
+    transform: translateY(1px);
+    background: #44494c;
+}
+
+.max_symbolsCounter.curentSybols.true {
+    color: #779fde;
+}
+.max_symbolsCounter.curentSybols.max {
+    color: #7dde77;
+}

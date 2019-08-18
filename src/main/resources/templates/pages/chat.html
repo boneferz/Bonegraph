@@ -25,7 +25,9 @@
 				<button id="send_newMessage" class="btn active" type="button">submit</button>
 				<button id="send_newMessageCancel" class="btn cancel" type="button">cancel</button>
 			</div>
-			<span class="max_symbols">max symbols: 450</span>
+			<span class="max_symbols">max symbols:
+				<span class="max_symbolsCounter">
+					<span class="max_symbolsCounter curentSybols">0</span>/450</span></span>
 		</div>
 		
 		<p class="counter_allposts"> all posts: <span class="counter" th:text="${messages.size()}">24</span></p>

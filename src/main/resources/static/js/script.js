@@ -37,8 +37,10 @@ function sendMessage() {
 	var dataText = $('#send_newMessage_text').val(); // get
 	console.log(dataText);
 
-	if (dataText.length != 0 && dataText != '') {
+	if (dataText.trim().length > 0) {
 		$('#send_newMessage_text').val(null); // set
+
+		toTop(); // animation
 
 		$.ajax({
 			url: '/api/create',
@@ -48,9 +50,22 @@ function sendMessage() {
 			contentType: 'text/plain'
 		}).done(function (data) {
 			$('.counter_allposts').after(data);
+
+			// posts counter RESET
 			var int = parseInt($('.counter').html()) + 1;
 			$('.counter').html(int);
+
+			// symbol counter RESET
+			$('.max_symbolsCounter.curentSybols').html(0);
+			$('.max_symbolsCounter.curentSybols').removeClass('true');
+			$('.max_symbolsCounter.curentSybols').removeClass('max');
 		});
+	} else {
+		$('#send_newMessage_text').val(null);
+		// symbol counter RESET
+		$('.max_symbolsCounter.curentSybols').html(0);
+		$('.max_symbolsCounter.curentSybols').removeClass('true');
+		$('.max_symbolsCounter.curentSybols').removeClass('max');
 	}
 }
 
@@ -59,15 +74,19 @@ function sendMessage() {
 // --------------------------------------------------------------------- //
 
 $('.photoBottom.space_up').click(function() {
-	$('.side.content').animate({scrollTop: 0},500);
+	toTop();
 });
+
+function toTop() {
+	$('.side.content').animate({scrollTop: 0},500);
+}
 
 // --------------------------------------------------------------------- //
 // EDIT post
 // --------------------------------------------------------------------- //
 
 $('.content').on('click', '.editPost', function() {
-	$('.side.content').animate({scrollTop: 0},500);
+	toTop();
 
 	$(this).parent().siblings('.postText').addClass('editing');
 	$('#send_newMessage_text').addClass('editing');
@@ -89,7 +108,7 @@ $('.content').on('click', '.deletePost', function() {
 	console.log('postIndex: ' + postIndex);
 
 	$.ajax({
-		url: 'http://localhost:9999/api/delete',
+		url: '/api/delete',
 		type: "POST",
 		data: encodeURIComponent(postIndex),
 		dataType: 'text',
@@ -101,11 +120,31 @@ $('.content').on('click', '.deletePost', function() {
 	});
 });
 
+// --------------------------------------------------------------------- //
+// post symbols counter
+// --------------------------------------------------------------------- //
 
+var oldVal = "";
+$("#send_newMessage_text").on('change keyup paste', function() {
+	var newVal = $(this).val();
+	var newValSize = $(this).val().length;
+	if (oldVal == newVal) return; // nothing
+	oldVal = newVal; // save
 
+	// set counter
+	$('.max_symbolsCounter.curentSybols').html(newValSize);
 
-
-
-
+	// styles
+	if (newValSize == 0) {
+		$('.max_symbolsCounter.curentSybols').removeClass('true');
+		$('.max_symbolsCounter.curentSybols').removeClass('max');
+	} else if (newValSize > 0 && newValSize < 450) {
+		$('.max_symbolsCounter.curentSybols').addClass('true');
+		$('.max_symbolsCounter.curentSybols').removeClass('max');
+	} else if (newValSize == 450) {
+		$('.max_symbolsCounter.curentSybols').removeClass('true');
+		$('.max_symbolsCounter.curentSybols').addClass('max');
+	}
+});
 
 
