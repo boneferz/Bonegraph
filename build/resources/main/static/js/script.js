@@ -67,12 +67,14 @@ $('.photoBottom.space_up').click(function() {
 // --------------------------------------------------------------------- //
 
 $('.content').on('click', '.editPost', function() {
-	$(this).siblings('.postText').addClass('editing');
+	$('.side.content').animate({scrollTop: 0},500);
+
+	$(this).parent().siblings('.postText').addClass('editing');
 	$('#send_newMessage_text').addClass('editing');
 
-	$('#send_newMessage_text').val($(this).html());
+	$('#send_newMessage_text').val($(this).parent().siblings('.postText').html());
 
-	var post = $(this).parent().parent('.postWrapper.postType');
+	var post = $(this).parent().parent().parent('.postWrapper.postType');
 	var postIndex = post.index('.postWrapper.postType');
 	console.log('edit: ' + postIndex);
 });
@@ -82,7 +84,7 @@ $('.content').on('click', '.editPost', function() {
 // --------------------------------------------------------------------- //
 
 $('.content').on('click', '.deletePost', function() {
-	var post = $(this).parent().parent('.postWrapper.postType');
+	var post = $(this).parent().parent().parent('.postWrapper.postType');
 	var postIndex = post.index('.postWrapper.postType');
 	console.log('postIndex: ' + postIndex);
 

@@ -51,6 +51,8 @@ body {
     height: 101vh;
     margin-bottom: -15px;
     padding-right: 150px;
+    padding-top: 150px;
+    width: 715px;
 }
 
 .mainHead {
@@ -114,9 +116,15 @@ body {
 }
 
 .postWrapper.input {
-    margin-top: 10px;
     margin-bottom: 25px;
     text-align: center;
+    width: 570px;
+    position: fixed;
+    z-index: 100;
+    margin-left: -10px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 2px 2px 11px #0d0f10;
+    top: 0;
 }
 
 .info > span {
@@ -225,10 +233,10 @@ body {
     height: 70px;
     position: absolute;
     left: 3px;
-    overflow: hidden;
     border: 2px solid #475f4d;
-    top: 23px;
+    top: 2px;
     border-radius: 50%;
+    text-align: center;
 }
 
 img {
@@ -362,6 +370,7 @@ textarea.inputtext:focus,
 }
 
 .postText {
+    max-width: 435px;
     width: fit-content;
     color: #a5c1b2;
     margin: 0;
@@ -526,10 +535,6 @@ textarea.inputtext:focus,
     color: #b19775;
 }
 
-.postText .post_counter {
-    color: #fa94ff;
-    font-size: 12px;
-}
 span.ava_symbol {
     font-size: 45px;
     text-align: center;
@@ -547,6 +552,7 @@ span.ava_symbol {
     opacity: 0.8;
     filter: invert(1);
     transition: 0.2s;
+    cursor: pointer;
 }
 .space.space_up {
     position: fixed;
@@ -554,7 +560,6 @@ span.ava_symbol {
     bottom: 30px;
     opacity: 1;
     height: 40px;
-    cursor: pointer;
 }
 .photoBottom.space_up:hover {
     transform: rotate(90deg) translateX(-1px);
@@ -576,6 +581,26 @@ span.ava_symbol {
     background: #2b2d31;
     outline: 2px dashed #ff8d00;
 }
-
-
+.endText {
+    color: #00000052;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-weight: 900;
+    margin-bottom: 0;
+}
+.photoBottom.end {
+    width: 18px;
+    opacity: 0.35;
+}
+.post_counter {
+    color: #fa94ffcf;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+}
+.postChanges {
+    user-select: none;
+}
 
