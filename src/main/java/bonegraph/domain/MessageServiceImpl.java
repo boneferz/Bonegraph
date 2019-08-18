@@ -2,7 +2,6 @@ package bonegraph.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -12,7 +11,7 @@ public class MessageServiceImpl implements MessageService {
 	
 	@Override
 	public List<Message> getAll() {
-		return (List<Message>) messageRepository.findAll();
+		return messageRepository.findAllByOrderById();
 	}
 	
 	@Override
@@ -28,6 +27,11 @@ public class MessageServiceImpl implements MessageService {
 	@Override
 	public void deleteById(Long id) {
 		messageRepository.deleteById(id);
+	}
+	
+	@Override
+	public void delete(Message message) {
+		messageRepository.delete(message);
 	}
 	
 }

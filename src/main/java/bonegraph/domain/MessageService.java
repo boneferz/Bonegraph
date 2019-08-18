@@ -8,4 +8,5 @@ public interface MessageService {
 	Message getById(Long id);
 	Message save(Message message);
 	void deleteById(Long id);
+	void delete(Message message);
 }
