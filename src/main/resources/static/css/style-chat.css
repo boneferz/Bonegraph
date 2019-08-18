@@ -280,6 +280,7 @@ textarea.inputtext {
     overflow: hidden;
     top: 0;
     transition: 0.2s;
+    width: 88px;
 }
 
 .newPost .btn.active {
@@ -574,7 +575,8 @@ span.ava_symbol {
 }
 
 .postText.editing {
-    background: #3f676b;
+    color: #d4d288;
+    background: #3e360e;
     outline: 2px dashed #ff8d00;
 }
 
@@ -625,4 +627,27 @@ span.ava_symbol {
 }
 .max_symbolsCounter.curentSybols.max {
     color: #7dde77;
+}
+
+.delete.edit.active {
+    color: #9696967a;
+}
+
+.btn.active.edit {
+    background: #a28d52;
+    border: 2px solid #e2c327;
+    color: #f6ff79;
+}
+.newPost .btn.edit:hover {
+    border: 2px solid #e0c066;
+    background: #c1a24a;
+    transform: translateY(-1px);
+    filter: drop-shadow(0px 0px 6px #907732);
+}
+
+.newPost .btn.edit:active {
+    transition: 0.1s;
+    transform: translateY(1px);
+    border: 2px solid #e0c066;
+    background: #bd8e33;;
 }

@@ -84,18 +84,59 @@ function toTop() {
 // --------------------------------------------------------------------- //
 // EDIT post
 // --------------------------------------------------------------------- //
+var current_editButton;
 
+// activ
 $('.content').on('click', '.editPost', function() {
-	toTop();
+	// styles - reset
+	if (current_editButton != null) {
+		current_editButton.removeClass('active');
+		current_editButton.parent().siblings('.postText').removeClass('editing');
+	}
+	current_editButton = $(this); // save
 
+	// style
+	$('#send_newMessage').addClass('edit');
+	$('#send_newMessage').html('SAVE');
+	$(this).addClass('active');
 	$(this).parent().siblings('.postText').addClass('editing');
 	$('#send_newMessage_text').addClass('editing');
+	$('#send_newMessageCancel').show();
 
+	// text
 	$('#send_newMessage_text').val($(this).parent().siblings('.postText').html());
+});
 
+//disable
+$('#send_newMessageCancel').click(function() {
+	//stylesreset
+	resetEditStyles();
+	current_editButton = null;
+});
+
+function resetEditStyles() {
+	if (current_editButton != null) {
+		// style
+		$('#send_newMessage').removeClass('edit');
+		$('#send_newMessage').html('SUBMIT');
+		current_editButton.removeClass('active');
+		current_editButton.parent().siblings('.postText').removeClass('editing');
+		$('#send_newMessage_text').removeClass('editing');
+		$('#send_newMessageCancel').hide();
+
+		// text
+		$('#send_newMessage_text').val(null);
+	}
+}
+
+// send
+$('.postWrapper.input').on('click', '.btn.active.edit', function () {
+	// data
 	var post = $(this).parent().parent().parent('.postWrapper.postType');
 	var postIndex = post.index('.postWrapper.postType');
+
 	console.log('edit: ' + postIndex);
+	console.log('SEND: ' + postIndex);
 });
 
 // --------------------------------------------------------------------- //
@@ -103,6 +144,9 @@ $('.content').on('click', '.editPost', function() {
 // --------------------------------------------------------------------- //
 
 $('.content').on('click', '.deletePost', function() {
+	// reset EDIT
+	resetEditStyles();
+
 	var post = $(this).parent().parent().parent('.postWrapper.postType');
 	var postIndex = post.index('.postWrapper.postType');
 	console.log('postIndex: ' + postIndex);
